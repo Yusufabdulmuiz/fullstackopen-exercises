@@ -1,25 +1,22 @@
+import StatisticLine from "./StatisticLine"
 
 const Statistic = ({total,good, neutral, bad, average, positive }) => {
-  if (total== 0) {
-    return(
-        <div>
-no stat yet
-        </div>
-    )
-  } else {
-    return(
-          <> 
-          <p>{good}</p>
-      <p>{neutral}</p>
-     <p>{bad}</p>
-      <p> total:{total}</p>
-      <p> average:{average}</p>
-      <p> positive:{positive}</p>
-      </>
-    )
+  
+  return total == 0 ? (
+        <div>no stat yet</div>
+    ): (
+<table>
+  <tbody>
+      < StatisticLine text="good" value={good} />
+      < StatisticLine text="neutral" value={neutral} />
+      < StatisticLine text="bad" value={bad} />
+      < StatisticLine text="total" value={total} />
+      < StatisticLine text="average" value={average.toFixed(1)} /> 
+      < StatisticLine text="positive" value={positive.toFixed(1)} />
+  </tbody>
+</table>
+  )
     
   }
-
-}
 
 export default Statistic

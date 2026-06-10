@@ -7,48 +7,22 @@ import Statistic from './Statistic'
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  const [total , setTotal] = useState(0);
-  const [average , setAverage] = useState(0);
-    const [positive , setPositive] = useState(0);
+
 
  
     const handleGood = () => {
-      const updateGood = good+1
-
-    setGood(updateGood)
-         setTotal(neutral+ updateGood+ bad)
-         const updateTotal = total +1
-                  setPositive(good/updateTotal)
-
-         console.log(updateTotal)
-          setAverage(neutral/updateTotal)
-         
-
+      setGood(good + 1)
     } 
       const handleBad = () => {
-        const updateBad = bad+1
-
-    setBad(updateBad)
-         setTotal(neutral+ good+ updateBad)
-        const updateTotal = total +1
-                  setPositive(good/updateTotal)
-                   setAverage(neutral + updateTotal)
-
- }
+        setBad(bad + 1)
+        }
        const handleNeutral = () => { 
-const updateNeutral = neutral+1
-    setNeutral(updateNeutral) 
-     setTotal(updateNeutral+ good+ bad)
-               const updateTotal = total +1
-                  setPositive(good/updateTotal)
-                               setAverage(updateNeutral/updateTotal)
-
-
-
+        setNeutral(neutral + 1)
       }
 
-     
-
+     const total = good + bad + neutral;
+     const average = total == 0 ? 0 : (good - bad ) / total
+     const positive =total == 0 ? 0 : (good / total ) * 100
   return (
     <div>
       <Title  text="give feedback"/>
