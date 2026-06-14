@@ -1,8 +1,8 @@
 
-const Part = ({parts}) => {
+const Part = ({part}) => {
   return (
     <div>
-        {parts.map(part =><p key={part.id}>{part.name} {part.exercises}</p>)}
+        <p>{part.name} {part.exercises}</p>
     </div>
   )
 }
